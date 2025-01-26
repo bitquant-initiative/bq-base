@@ -1,6 +1,6 @@
 FROM public.ecr.aws/lambda/java:21
 
-LABEL org.opencontainers.image.source https://github.com/bitquant-initiative/bq-base
+LABEL org.opencontainers.image.source=https://github.com/bitquant-initiative/bq-base
 
 RUN dnf install -y unzip shadow-utils awscli less
 RUN curl --fail --location --progress-bar --output duckdb.zip https://github.com/duckdb/duckdb/releases/download/v1.1.3/duckdb_cli-linux-$(uname -i | sed s/x86_64/amd64/).zip && \
