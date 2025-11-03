@@ -3,7 +3,7 @@ FROM public.ecr.aws/lambda/java:21
 LABEL org.opencontainers.image.source=https://github.com/bitquant-initiative/bq-base
 
 RUN dnf install -y unzip shadow-utils findutils awscli less && \
-curl --fail --location --progress-bar --output duckdb.zip https://github.com/duckdb/duckdb/releases/download/v1.1.3/duckdb_cli-linux-$(uname -i | sed s/x86_64/amd64/).zip && \
+curl --fail --location --progress-bar --output duckdb.zip https://github.com/duckdb/duckdb/releases/download/v1.4.1/duckdb_cli-linux-$(uname -i | sed s/x86_64/amd64/ | sed s/aarch64/arm64/ ).zip && \
 unzip duckdb.zip && \
 rm duckdb.zip && \
 mv duckdb /usr/bin/duckdb && \
